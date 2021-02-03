@@ -96,7 +96,7 @@ section {
     }
 }
 
-.descricao-principal {
+.descricao_principal {
     margin: $distancia-p 0;
     font-size: 1.125rem;
 
@@ -115,6 +115,25 @@ section {
             width: 100px;
             height: 1px;
             margin: 1rem auto;
+        }
+    }
+}
+
+// Footer
+.footer_site {
+    @include sombra(0 -2px 4px rgba(34, 34, 34, 0.25));
+
+    padding: $distancia-p 0;
+    text-align: center;
+    background-color: $branco-fundo;
+
+    span {
+        margin-top: 0.5rem;
+        color: $cinza-claro;
+        display: block;
+
+        a {
+            color: #47F;
         }
     }
 }
