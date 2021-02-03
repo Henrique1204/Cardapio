@@ -62,3 +62,15 @@
         }
     }
 }
+
+.intro {
+    text-align: center;
+    color: $branco-conteudo;
+    background-color: $preto;
+
+    p {
+        max-width: 480px;
+        margin: $distancia-p auto 0;
+        font-size: 1.125rem;
+    }
+}
