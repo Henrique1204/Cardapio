@@ -1,5 +1,71 @@
 @import "_reset.scss";
+@import "_tema.scss";
 
+// Geral
 body {
+    padding-top: $topo;
+    font-family: 'Roboto', sans-serif;
+    color: $preto;
     background-color: #EEE;
+
+    @include responsividade() {
+        padding-top: $topo-mobile;
+    }
+}
+
+// Header
+.header_site {
+    @include sombra(0px 2px 4px rgba(34, 34,34, 0.25));
+
+    width: 100%;
+    height: $topo;
+    padding: $distancia-p 0;
+    background-color: $branco-fundo;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    @include responsividade() {
+        height: $topo-mobile;
+
+        .logo {
+            margin: 0 auto;
+        }
+    }
+
+    .logo {
+        max-width: 160px;
+        display: block;
+    }
+    
+    .menu_nav {
+        @include grid(3);
+
+        ul {
+            justify-content: flex-end;
+
+            @include responsividade() {
+                justify-content: center;
+                margin-top: $distancia-p;
+            }
+        }
+
+        li + li {
+            margin-left: $distancia-p;
+        }
+
+        a {
+            padding: 0.5rem;
+            margin-top: 0.2rem;
+            border-radius: 6px;
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            display: block;
+            transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: 0px 0px 0 1px;
+            }
+        }
+    }
 }

@@ -1,0 +1,94 @@
+// Cores
+$branco-fundo: #FFF;
+$branco-conteudo: #F4F4F4;
+$preto: #222;
+$cinza-escuro: #333;
+$cinza-claro: #555;
+
+// medidas
+$topo: 82px;
+$topo-mobile: 138px;
+$distancia-p: 1rem;
+$distancia-g: 2rem;
+
+// Variáveis do Grid
+$colunas: 12;
+$gutter: 20px;
+$tela-grande: 960px;
+$tela-media: 720px;
+$tela-pequena: 300px;
+
+// Mixin dos media-query
+@mixin responsividade($tamanho: false) {
+    @if ($tamanho == media)
+    {
+        @media screen and (max-width: $tela-grande + 30) {
+            @content;
+        }
+    }
+    @else
+    {
+        @media screen and (max-width: $tela-media + 30) {
+            @content;
+        } 
+    }
+}
+
+// Mixin container
+.container {
+    max-width: $tela-grande;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    @include responsividade(media) {
+        max-width: $tela-media;
+    }
+
+    @include responsividade() {
+        max-width: $tela-pequena;
+    }
+}
+
+.linha {
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.centralizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// grid
+@mixin grid($coluna) {
+    $largura: $coluna / $colunas * 100 + "%";
+    $valorFinal: calc(#{$largura} - #{$gutter});
+
+    width: $valorFinal;
+    min-height: 1px;
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+
+    @include responsividade() {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+// Efeitos
+@mixin sombra($sombra...) {
+    -webkit-box-shadow: $sombra;
+    -moz-box-shadow: $sombra;
+    box-shadow: $sombra;
+}
