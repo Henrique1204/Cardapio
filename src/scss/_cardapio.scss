@@ -23,4 +23,21 @@
     .card_cardapio {
         margin-top: 2rem;
     }
+
+    @include responsividade() {
+        .container {
+            max-width: 100%;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .card_cardapio {
+            max-width: 260px;
+            flex-shrink: 0;
+        }
+
+        .card_cardapio {
+            margin: 2rem $gutter 0;
+        }
+    }
 }
