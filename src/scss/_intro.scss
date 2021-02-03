@@ -6,6 +6,10 @@
     .infos {
         @include grid(4);
 
+        @include responsividade(media) {
+            @include grid(5);
+        }
+
         h1{
             font-size: 1.5rem;
         }
@@ -56,71 +60,6 @@
             &::after {
                 background-color: #D64;
             }
-        }
-    }
-
-    .card_cardapio {
-        @include grid(3);
-        @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
-
-        padding: $distancia-g $distancia-p $distancia-p;
-        border: 1px solid;
-        border-radius: $radius;
-        background-color: $cinza-escuro;
-        position: relative;
-
-        .etiqueta {
-            @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
-
-            padding: 6px $distancia-p;
-            border-radius: $radius;
-            font-size: 0.875rem;
-            background-color: $cinza-claro;
-            display: block;
-            position: absolute;
-            top: -6px;
-            left: -1px;
-        }
-
-        ul {
-            padding: $distancia-p;
-            border: 1px solid $branco-conteudo;
-            border-radius: $radius;
-            text-align: center;
-            background-color: $cinza-claro;
-
-            li + li {
-                margin-top: $distancia-p;
-            }
-
-            h5 {
-                font-weight: normal;
-            }
-
-            span {
-                margin-top: 0.5rem;
-                font-size: 0.875rem;
-                color: rgba(244, 244, 244, 0.6);
-
-                &::after, &::before {
-                    content: "";
-                    width: 20px;
-                    height: 1px;
-                    margin: 0 0.5rem;
-                    background-color: currentColor;
-                    display: block;
-                }
-            }
-        }
-    }
-
-    @include responsividade(media) {
-        .infos {
-            @include grid(5);
-        }
-
-        .card_cardapio {
-            @include grid(4);
         }
     }
 

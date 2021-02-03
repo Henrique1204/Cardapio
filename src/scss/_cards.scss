@@ -1,0 +1,59 @@
+.card_cardapio {
+    @include grid(3);
+    @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
+
+    padding: $distancia-g $distancia-p $distancia-p;
+    border: 1px solid;
+    border-radius: $radius;
+    color: $branco-conteudo;
+    background-color: $cinza-escuro;
+    position: relative;
+
+    @include responsividade(media) {
+        @include grid(4);
+    }
+
+    .etiqueta {
+        @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
+
+        padding: 6px $distancia-p;
+        border-radius: $radius;
+        font-size: 0.875rem;
+        background-color: $cinza-claro;
+        display: block;
+        position: absolute;
+        top: -6px;
+        left: -1px;
+    }
+
+    ul {
+        padding: $distancia-p;
+        border: 1px solid $branco-conteudo;
+        border-radius: $radius;
+        text-align: center;
+        background-color: $cinza-claro;
+
+        li + li {
+            margin-top: $distancia-p;
+        }
+
+        h5 {
+            font-weight: normal;
+        }
+
+        span {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: rgba(244, 244, 244, 0.6);
+
+            &::after, &::before {
+                content: "";
+                width: 20px;
+                height: 1px;
+                margin: 0 0.5rem;
+                background-color: currentColor;
+                display: block;
+            }
+        }
+    }
+}
