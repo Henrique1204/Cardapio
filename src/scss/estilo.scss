@@ -1,12 +1,13 @@
 @import "_reset.scss";
 @import "_tema.scss";
+@import "_intro.scss";
 
 // Geral
 body {
     padding-top: $topo;
     font-family: 'Roboto', sans-serif;
     color: $preto;
-    background-color: #EEE;
+    background-color: #DDD;
 
     @include responsividade() {
         padding-top: $topo-mobile;
@@ -42,7 +43,9 @@ body {
         @include grid(3);
 
         ul {
+            display: flex;
             justify-content: flex-end;
+            align-items: center;
 
             @include responsividade() {
                 justify-content: center;
@@ -57,7 +60,7 @@ body {
         a {
             padding: 0.5rem;
             margin-top: 0.2rem;
-            border-radius: 6px;
+            border-radius: $radius;
             font-size: 1.125rem;
             text-transform: uppercase;
             display: block;
@@ -68,4 +71,9 @@ body {
             }
         }
     }
+}
+
+// Sessões
+section {
+    padding: $distancia-g;
 }
