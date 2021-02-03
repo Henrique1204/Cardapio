@@ -1,4 +1,33 @@
-.card_cardapio {
+.sessao_cards {
+    background-color: $branco-fundo;
+
+    .container {
+        justify-content: flex-start;
+    }
+
+    .card_cardapio, .card_prato {
+        margin-top: $distancia-g;
+    }
+
+    @include responsividade() {
+        .container {
+            max-width: 100%;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .card_cardapio, .card_prato {
+            max-width: 260px;
+            flex-shrink: 0;
+        }
+
+        .card_cardapio, .card_prato {
+            margin: $distancia-g $gutter 0;
+        }
+    }
+}
+
+.card {
     @include grid(3);
     @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
 
@@ -9,13 +38,9 @@
     background-color: $cinza-escuro;
     position: relative;
 
-    @include responsividade(media) {
-        @include grid(4);
-    }
-
     .etiqueta {
         @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
-
+    
         padding: 6px $distancia-p;
         border-radius: $radius;
         font-size: 0.875rem;
@@ -24,6 +49,12 @@
         position: absolute;
         top: -6px;
         left: -1px;
+    }
+}
+
+.card_cardapio {
+    @include responsividade(media) {
+        @include grid(4);
     }
 
     ul {
@@ -54,6 +85,63 @@
                 background-color: currentColor;
                 display: block;
             }
+        }
+    }
+}
+
+.card_prato {
+    @include grid(6);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .container_etiqueta {
+        width: 100%;
+        position: absolute;
+        top: -6px;
+        left: -1px;
+
+        .etiqueta {
+            position: static;
+        }
+    }
+
+    .img {
+        width: 220px;
+        height: 160px;
+        margin-right: $distancia-g;
+        border-radius: $radius;
+        background-color: #EEE;
+        align-self: flex-start;
+        flex-shrink: 0;
+    }
+
+    .infos span{
+        text-align: center;
+        display: block;
+
+        &::before {
+            content: "";
+            width: 100px;
+            height: 2px;
+            margin: 0.5rem auto;
+            background-color: rgba(244, 244, 244, 0.2);
+            display: block;
+        }
+    }
+
+    @include responsividade(media) {
+        flex-direction: column;
+
+        .img {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: $distancia-p;
+        }
+
+        .infos p{
+            text-align: center;
         }
     }
 }

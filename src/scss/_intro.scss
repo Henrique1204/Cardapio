@@ -72,5 +72,10 @@
         max-width: 480px;
         margin: $distancia-p auto 0;
         font-size: 1.125rem;
+
+        @include responsividade() {
+            max-width: 300px;
+            font-size: 1rem;
+        }
     }
 }
