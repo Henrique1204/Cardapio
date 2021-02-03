@@ -14,21 +14,6 @@
             font-size: 1.5rem;
         }
 
-        p {
-            margin: $distancia-p 0;
-            font-size: 1.125rem;
-
-            &::after, &::before {
-                content: "";
-                width: 200px;
-                height: 3px;
-                border-radius: 3px;
-                margin: 0.5rem 0;
-                background-color: currentColor;
-                display: block;
-            }
-        }
-
         span {
             margin-top: 0.5rem;
             display: block;
@@ -66,12 +51,6 @@
     @include responsividade() {
         .infos {
             text-align: center;
-
-            p::after, p::before {
-                width: 100px;
-                height: 1px;
-                margin: 1rem auto;
-            }
 
             span[data-horario] {
                 justify-content: center;

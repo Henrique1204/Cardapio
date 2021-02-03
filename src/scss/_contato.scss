@@ -1,0 +1,61 @@
+.contato {
+    justify-content: space-around;
+    align-items: stretch;
+
+    h1 {
+        @include grid(12);
+    }
+
+    .infos {
+        @include grid(4);
+
+        margin-top: $distancia-p;
+
+        span {
+            font-size: 0.875rem;
+            color: $cinza-claro;
+            display: block;
+        }
+
+        span + span {
+            margin-top: 0.5rem;
+        }
+
+        .span-tel {
+            margin-bottom: $distancia-g;
+        }
+    }
+
+    .mapa {
+        @include grid(4);
+        @include sombra(2px 2px 4px rgba(34, 34, 34, 0.25));
+
+        border-radius: $radius;
+        margin-top: 1.5rem;
+        background-color: $preto;
+    }
+
+    @include responsividade(media) {
+        justify-content: space-between;
+
+        .infos, .mapa {
+            @include grid(5);
+        }
+    }
+
+    @include responsividade() {
+        .infos {
+            order: 2;
+            text-align: center;
+
+            .span-tel {
+                margin-bottom: 4rem;
+            }
+        }
+
+        .mapa {
+            order: 1;
+            height: 300px;
+        }
+    }
+}

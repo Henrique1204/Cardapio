@@ -3,6 +3,7 @@
 @import "_cards.scss";
 @import "_intro.scss";
 @import "_cardapio.scss";
+@import "_contato.scss";
 
 // Geral
 body {
@@ -78,4 +79,42 @@ body {
 // Sessões
 section {
     padding: $distancia-g 0;
+}
+
+.titulo-sessao {
+    font-size: 1.5rem;
+    text-align: center;
+
+    &::after {
+        content: "";
+        width: 100px;
+        height: 2px;
+        border-radius: 2px;
+        margin: 0.25rem auto 0;
+        background-color: currentColor;
+        display: block;
+    }
+}
+
+.descricao-principal {
+    margin: $distancia-p 0;
+    font-size: 1.125rem;
+
+    &::after, &::before {
+        content: "";
+        width: 200px;
+        height: 3px;
+        border-radius: 3px;
+        margin: 0.5rem 0;
+        background-color: currentColor;
+        display: block;
+    }
+
+    @include responsividade() {
+        &::after, &::before {
+            width: 100px;
+            height: 1px;
+            margin: 1rem auto;
+        }
+    }
 }
