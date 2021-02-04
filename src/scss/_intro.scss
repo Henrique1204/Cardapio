@@ -46,6 +46,10 @@
                 background-color: #D64;
             }
         }
+
+        strong[data-horario] {
+            margin: 0 0.3rem;
+        }
     }
 
     @include responsividade() {
