@@ -4,21 +4,44 @@
 
 .slide {
     display: flex;
+
+    &:hover {
+        will-change: transform;
+    }
+
+    li {
+        margin: 0 20px;
+        flex-shrink: 0;
+        opacity: 0.8;
+        transform: scale(0.8);
+        transition: 0.3s;
+
+        &.ativo {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 }
 
-.slide:hover {
-    will-change: transform;
-}
+[data-controle="slide"] {
+    width: 80%;
+    border-radius: $radius;
+    margin: 1rem auto 0;
+    background-color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 
-.slide li {
-    margin: 0 20px;
-    flex-shrink: 0;
-    opacity: 0.8;
-    transform: scale(0.8);
-    transition: 0.3s;
-}
+    li {
+        height: 8px;
+        color: #444;
+        background-color: currentColor;
+        flex: 1;
+        overflow: hidden;
 
-.slide li.ativo {
-    opacity: 1;
-    transform: scale(1);
+        &.ativo {
+            color: #222;
+        }
+    }
 }

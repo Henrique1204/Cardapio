@@ -1,19 +1,10 @@
+import checarHorario from "./checarHorario.js";
 import SlideNav from './slide.js';
-
-const checarHorario = () => {
-    const spanHorario = document.querySelector('span[data-horario]');
-    const abre = document.querySelector('[data-horario="abre"]')?.innerText.replace(/\D/g, '');
-    const fecha = document.querySelector('[data-horario="fecha"]')?.innerText.replace(/\D/g, '');
-
-    if (spanHorario && abre && fecha) {
-        const hora = new Date().getHours();
-        const isAberto = hora >= abre && hora < fecha;
-
-        spanHorario.setAttribute('data-horario', isAberto ? 'aberto' : 'fechado');
-    }
-};
+import debounce from "./debounce.js";
 
 checarHorario();
+
+let slideExiste = false;
 
 const handleSlide = () => {
     const { matches } = window.matchMedia('(max-width: 750px');
@@ -25,8 +16,12 @@ const handleSlide = () => {
         slide.classList.add('slide');
         slide.classList.remove('container');
 
-        const slideNav = new SlideNav('.slide', '.slide-wrapper');
-        slideNav.iniciar();
+        if (!slideExiste) {
+            slideExiste = true;
+            const slideNav = new SlideNav('.slide', '.slide-wrapper');
+            slideNav.iniciar();
+            slideNav.addEventoControle();
+        }
     } else {
         wrapper.classList.remove('slide-wrapper');
         slide.classList.remove('slide');
@@ -35,4 +30,6 @@ const handleSlide = () => {
 };
 
 handleSlide();
-window.addEventListener('resize', handleSlide);
+window.addEventListener('resize', () => {
+    debounce(handleSlide(), 200);
+});
