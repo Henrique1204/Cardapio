@@ -12,8 +12,6 @@
     @include responsividade() {
         .container {
             max-width: 100%;
-            flex-wrap: nowrap;
-            overflow-x: auto;
         }
 
         .card_cardapio, .card_prato {
